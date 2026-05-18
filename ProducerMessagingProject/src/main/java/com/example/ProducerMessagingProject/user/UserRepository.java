@@ -1,4 +1,4 @@
-package com.example.ProducerMenssagingProject.user;
+package com.example.ProducerMessagingProject.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,4 +10,5 @@ public interface UserRepository extends JpaRepository<UserModel, UUID> {
      boolean existsByEmail(String email);
      boolean existsByUserNameAndIdNot(String userName,UUID id);
      boolean existsByEmailAndIdNot(String email,UUID id);
+     Optional<UserModel> findByEmail(String email);
 }

@@ -1,4 +1,4 @@
-package com.example.ProducerMenssagingProject.user;
+package com.example.ProducerMessagingProject.user;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;

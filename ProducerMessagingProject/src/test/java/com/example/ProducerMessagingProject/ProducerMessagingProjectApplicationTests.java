@@ -1,10 +1,10 @@
-package com.example.ProducerMenssagingProject;
+package com.example.ProducerMessagingProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProducerMenssagingProjectApplicationTests {
+class ProducerMessagingProjectApplicationTests {
 
 	@Test
 	void contextLoads() {

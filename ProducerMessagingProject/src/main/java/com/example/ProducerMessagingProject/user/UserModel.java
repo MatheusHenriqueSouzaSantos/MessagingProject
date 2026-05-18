@@ -1,4 +1,4 @@
-package com.example.ProducerMenssagingProject.user;
+package com.example.ProducerMessagingProject.user;
 
 import jakarta.persistence.*;
 
