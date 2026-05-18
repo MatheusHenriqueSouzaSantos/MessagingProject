@@ -40,7 +40,10 @@ public class SecurityConfig {
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth-> auth
-                        .requestMatchers("/users/login").permitAll()
+                        .requestMatchers(
+                                "/users/login",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated())
         .oauth2ResourceServer(oath->
                 oath.jwt(Customizer.withDefaults()));
