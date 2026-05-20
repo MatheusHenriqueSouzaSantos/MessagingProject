@@ -1,6 +1,7 @@
 package com.example.ProducerMessagingProject.user;
 
 import com.example.ProducerMessagingProject.JwtResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class UserController {
         return ResponseEntity.ok(service.findById(id));
     }
     @PostMapping
-    public ResponseEntity<UserOutputDto> create(@RequestBody UserInputDto dto){
+    public ResponseEntity<UserOutputDto> create(@RequestBody @Valid UserInputDto dto){
         return ResponseEntity.ok(service.create(dto));
     }
     @PutMapping("/{id}")
     public ResponseEntity<UserOutputDto> update(@PathVariable UUID id,
-                                            @RequestBody UserInputDto dto){
+                                            @RequestBody @Valid UserInputDto dto){
         return ResponseEntity.ok(service.update(id,dto));
     }
     @DeleteMapping("/{id}")
@@ -42,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody LoginDto dto){
+    public ResponseEntity<JwtResponse> login(@RequestBody @Valid LoginDto dto){
         return ResponseEntity.ok(service.login(dto));
     }
 
