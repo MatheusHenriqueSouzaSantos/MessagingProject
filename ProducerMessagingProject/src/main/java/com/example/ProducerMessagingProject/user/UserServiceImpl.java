@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public JwtResponse login(UserInputDto dto) {
+    public JwtResponse login(LoginDto dto) {
         UserModel user=repository.findByEmail(dto.email())
                 .orElseThrow(()->new BusinessException("email or password invalid",HttpStatus.BAD_REQUEST));
         if(!passwordEncoder.matches(dto.password(), user.getPassword())){

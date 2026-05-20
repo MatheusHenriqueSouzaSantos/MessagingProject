@@ -11,5 +11,5 @@ public interface UserService {
     UserOutputDto create(UserInputDto dto);
     UserOutputDto update(UUID id, UserInputDto dto);
     void delete(UUID id);
-    JwtResponse login(UserInputDto dto);
+    JwtResponse login(LoginDto dto);
 }

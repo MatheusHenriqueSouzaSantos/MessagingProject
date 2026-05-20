@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody UserInputDto dto){
+    public ResponseEntity<JwtResponse> login(@RequestBody LoginDto dto){
         return ResponseEntity.ok(service.login(dto));
     }
 
