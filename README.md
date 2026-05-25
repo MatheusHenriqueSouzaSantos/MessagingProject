@@ -6,7 +6,7 @@ Este projeto é uma aplicação Backend desenvolvida com Spring Boot, focado no 
 O projeto consiste em um serviço que faz o gerenciamento dos usuários, e se comunica através do rabbitmq com outro serviço que consome essas mensagens,
 e faz o envio de email através do mailtrap (sandbox) para o usuário que foi criado, atualizado ou deletado informando essa mudança.
 
-![Arquitetura]
+![Arquitetura](images/Stream.drawio.png)
 
 ## Funcionalidades
 - CRUD de Usuários
