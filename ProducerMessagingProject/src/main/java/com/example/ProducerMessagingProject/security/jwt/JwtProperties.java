@@ -1,7 +1,6 @@
-package com.example.ProducerMessagingProject;
+package com.example.ProducerMessagingProject.security.jwt;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 
 @ConfigurationProperties(prefix = "jwt")

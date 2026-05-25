@@ -1,7 +1,12 @@
-package com.example.ProducerMessagingProject.user;
+package com.example.ProducerMessagingProject.user.controller;
 
-import com.example.ProducerMessagingProject.JwtResponse;
+
+import com.example.ProducerMessagingProject.security.jwt.JwtResponse;
+import com.example.ProducerMessagingProject.user.LoginDto;
 import jakarta.validation.Valid;
+import com.example.ProducerMessagingProject.user.dto.UserInputDto;
+import com.example.ProducerMessagingProject.user.dto.UserOutputDto;
+import com.example.ProducerMessagingProject.user.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

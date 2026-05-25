@@ -1,4 +1,4 @@
-package com.example.ProducerMessagingProject;
+package com.example.ProducerMessagingProject.exception;
 
 import org.springframework.http.HttpStatus;
 

@@ -1,6 +1,5 @@
-package com.example.ProducerMessagingProject;
+package com.example.ProducerMessagingProject.exception;
 
-import com.example.ProducerMessagingProject.user.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

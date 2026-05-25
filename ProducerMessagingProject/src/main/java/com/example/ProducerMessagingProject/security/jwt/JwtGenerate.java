@@ -1,6 +1,6 @@
-package com.example.ProducerMessagingProject;
+package com.example.ProducerMessagingProject.security.jwt;
 
-import com.example.ProducerMessagingProject.user.UserModel;
+import com.example.ProducerMessagingProject.user.entity.UserModel;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;

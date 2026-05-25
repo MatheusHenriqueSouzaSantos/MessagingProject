@@ -1,5 +1,6 @@
 package com.example.ProducerMessagingProject.user;
 
+import com.example.ProducerMessagingProject.user.entity.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package com.example.ProducerMessagingProject;
 
-import com.example.ProducerMessagingProject.user.UserModel;
+import com.example.ProducerMessagingProject.user.entity.UserModel;
 import com.example.ProducerMessagingProject.user.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;

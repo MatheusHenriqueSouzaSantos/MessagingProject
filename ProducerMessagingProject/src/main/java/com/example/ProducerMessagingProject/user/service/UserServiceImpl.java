@@ -1,8 +1,17 @@
-package com.example.ProducerMessagingProject.user;
+package com.example.ProducerMessagingProject.user.service;
 
-import com.example.ProducerMessagingProject.BusinessException;
-import com.example.ProducerMessagingProject.JwtGenerate;
-import com.example.ProducerMessagingProject.JwtResponse;
+import com.example.ProducerMessagingProject.exception.BusinessException;
+import com.example.ProducerMessagingProject.security.jwt.JwtGenerate;
+import com.example.ProducerMessagingProject.security.jwt.JwtResponse;
+import com.example.ProducerMessagingProject.user.*;
+import com.example.ProducerMessagingProject.user.dto.SendEmailDto;
+import com.example.ProducerMessagingProject.user.dto.UserInputDto;
+import com.example.ProducerMessagingProject.user.dto.UserOutputDto;
+import com.example.ProducerMessagingProject.user.entity.UserModel;
+import com.example.ProducerMessagingProject.user.event.SendEmailEvent;
+import com.example.ProducerMessagingProject.user.messaging.TypeMessage;
+import com.example.ProducerMessagingProject.user.messaging.UserProducerMessaging;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,11 +31,15 @@ public class UserServiceImpl implements UserService {
 
     private PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository repository, UserProducerMessaging producerMessaging, JwtGenerate jwtGenerate, PasswordEncoder passwordEncoder) {
+    private ApplicationEventPublisher eventPublisher;
+
+    public UserServiceImpl(UserRepository repository, UserProducerMessaging producerMessaging, JwtGenerate jwtGenerate,
+                           PasswordEncoder passwordEncoder, ApplicationEventPublisher eventPublisher) {
         this.repository = repository;
         this.producerMessaging = producerMessaging;
         this.jwtGenerate = jwtGenerate;
         this.passwordEncoder = passwordEncoder;
+        this.eventPublisher = eventPublisher;
     }
 
     @Override
@@ -53,7 +66,7 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException("the provided email already is used",HttpStatus.BAD_REQUEST);
         }
         UserModel user=repository.save(new UserModel(dto.userName(), dto.email(), passwordEncoder.encode(dto.password())));
-        producerMessaging.sendEmailMessage(dto.email(),"User created");
+        eventPublisher.publishEvent(new SendEmailEvent(new SendEmailDto(dto.email(), TypeMessage.CREATION_ACCOUNT,"User created")));
         return entityToDto(user);
     }
 
@@ -73,7 +86,7 @@ public class UserServiceImpl implements UserService {
         userFromDataBase.setUserName(dto.userName());
         userFromDataBase.setEmail(dto.email());
         userFromDataBase.setPassword(passwordEncoder.encode(dto.password()));
-        producerMessaging.sendEmailMessage(dto.email(),"User updated");
+        eventPublisher.publishEvent(new SendEmailEvent(new SendEmailDto(dto.email(),TypeMessage.CREATION_ACCOUNT,"User updated")));
         return entityToDto(userFromDataBase);
     }
 
@@ -83,7 +96,7 @@ public class UserServiceImpl implements UserService {
         UserModel user=repository.findById(id)
                         .orElseThrow(()->new BusinessException("User not found",HttpStatus.NOT_FOUND));
         repository.deleteById(id);
-        producerMessaging.sendEmailMessage(user.getEmail(),"User deleted");
+        eventPublisher.publishEvent(new SendEmailEvent(new SendEmailDto(user.getEmail(),TypeMessage.CREATION_ACCOUNT,"User deleted")));
     }
 
     @Override

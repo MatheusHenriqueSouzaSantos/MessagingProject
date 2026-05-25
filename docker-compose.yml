@@ -25,6 +25,10 @@ services:
       SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
+      MAIL_HOST:  # your mail host at mailtrap
+      MAIL_PORT:  # your mail port at mailtrap
+      MAIL_USERNAME: # your mail username at mailtrap
+      MAIL_PASSWORD: # your mail password at mailtrap
     depends_on: 
       rabbitmq:
         condition: service_healthy

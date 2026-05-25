@@ -1,5 +1,7 @@
-package com.example.ProducerMessagingProject.user;
+package com.example.ProducerMessagingProject.user.messaging;
 
+import com.example.ProducerMessagingProject.rabbitmq.RabbitConfiguration;
+import com.example.ProducerMessagingProject.user.dto.SendEmailDto;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,11 @@ public class UserProducerMessaging {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendEmailMessage(String emailToSend,String message){
+    public void sendEmailMessage(SendEmailDto dto){
         rabbitTemplate.convertAndSend(
-            UserRabbitConfig.USER_EXCHANGE_NAME,
-            UserRabbitConfig.USER_SEND_EMAIL_ROUTING_KEY,
-            new SendEmailDto(emailToSend,message)
+            RabbitConfiguration.USER_EXCHANGE_NAME,
+            RabbitConfiguration.USER_SEND_EMAIL_ROUTING_KEY,
+            dto
         );
     }
 }
