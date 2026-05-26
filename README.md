@@ -16,3 +16,10 @@ e faz o envio de email através do mailtrap (sandbox) para o usuário que foi cr
 - Worker Consumidor
 - Envio de Email
 - MailTrap sandbox (teste)
+
+## Swagger
+
+## Como Executar
+
+
+### Pré Requisitos 
