@@ -18,7 +18,7 @@ e faz o envio de email através do mailtrap (sandbox) para o usuário que foi cr
 - MailTrap sandbox (teste)
 
 ## Swagger
-![swagger Image](images/swaggerIterface)
+![swagger Image](images/swaggerIterface.png)
 
 ## Como Executar
 
