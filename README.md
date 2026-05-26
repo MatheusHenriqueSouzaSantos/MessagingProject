@@ -17,6 +17,17 @@ e faz o envio de email através do mailtrap (sandbox) para o usuário que foi cr
 - Envio de Email
 - MailTrap sandbox (teste)
 
+## Stack
+- Spring Boot
+- Rabbitmq
+- Postgres
+- Docker
+- Spring Security
+- Maven
+- Intelij
+- Mailtrap
+- Git
+
 ## Swagger
 ![swagger Image](images/swaggerIterface.png)
 
