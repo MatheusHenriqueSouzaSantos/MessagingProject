@@ -72,4 +72,4 @@ Após isso, basta abrir o terminal e executar o seguinte comando:
 docker compose up --build
 ```
 
-Agora a aplicação já esta rodando na porta 8080, e as rotas podem ser acessadas via swaggerUI em:
+Agora a aplicação já esta rodando na porta 8080, e as rotas podem ser acessadas via swaggerUI em: http://localhost:8080/swagger-ui/index.html
