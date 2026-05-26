@@ -18,6 +18,7 @@ e faz o envio de email através do mailtrap (sandbox) para o usuário que foi cr
 - MailTrap sandbox (teste)
 
 ## Stack
+- Java
 - Spring Boot
 - Rabbitmq
 - Postgres
