@@ -1,4 +1,4 @@
-## Messaging Project
+# Messaging Project
 
 Este projeto é uma aplicação Backend desenvolvida com Spring Boot, focado no uso de mensageria para o processamento assíncrono do processo de envio de emails.
 
