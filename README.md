@@ -59,9 +59,9 @@ acessar o mailtrap e conseguir manda um email via smtp.
 
 
 ### 6. Acesse o arquivo .env e Adicione os Valores das Variáveis de Ambiente
-terá essas linhas:
--MAIL_USERNAME:YOUR_MAILTRAP_USERNAME
--MAIL_PASSWORD:YOUR_MAIL_TRAP_PASSWORD
+terá essas linhas:\n
+-MAIL_USERNAME:YOUR_MAILTRAP_USERNAME\n
+-MAIL_PASSWORD:YOUR_MAIL_TRAP_PASSWORD\n
 a qual você deverá subistituir os valores após os dois pontos pelas credencias que você obteve no seu mailtrap
 
 ### 7. Rodar a aplicação
