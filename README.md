@@ -71,7 +71,7 @@ Acesse o [Mailtrap](https://mailtrap.io), vá em **Sandboxes** depois em **My Sa
 
 
 ### 6. Acesse o arquivo .env e Adicione os Valores das Variáveis de Ambiente
-nessas essas linhas você deverá subistituir os valores após os dois pontos pelos valores obtidos no passo anterior: <br/>
+No arquivo terá essas linhas que você deverá subistituir os valores após os dois pontos pelos valores obtidos no passo anterior: <br/>
 -MAIL_USERNAME:YOUR_MAILTRAP_USERNAME <br/>
 -MAIL_PASSWORD:YOUR_MAIL_TRAP_PASSWORD <br/>
 
