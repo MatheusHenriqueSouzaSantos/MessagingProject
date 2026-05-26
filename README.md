@@ -47,7 +47,7 @@ cd MessagingProject
 cp .env.example .env
 ```
 
-### Windows 
+#### Windows 
 ```cmd
 copy .env.example .env  
 ```
