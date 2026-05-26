@@ -35,10 +35,10 @@ e faz o envio de email através do mailtrap (sandbox) para o usuário que foi cr
 ## Como Executar
 
 ### Requisitos 
-- Ter uma conta no mailtrap
-- Docker
-- Docker Compose <br/>
-obs: se Windows, o docker desktop já tem o docker e o docker compose, basta inicia-lo e seguir o processo
+- Conta No Mailtrap
+- Docker e Docker Compose <br/>
+
+> **Windows** O Docker Desktop é necessário, e já inclui Docker e Docker Compose, basta baixa-lo e inicia-lo
 
 ### 1. Abra o terminal 
 
@@ -54,7 +54,7 @@ git clone https://github.com/MatheusHenriqueSouzaSantos/MessagingProject
 cd MessagingProject
 ```
 
-### 4. Criando o Arquivo das Variáveis de Ambiente (Com base no arquivo de exemplo)
+### 4. Crie o Arquivo das Variáveis de Ambiente 
 
 #### Linux
 ```bash
@@ -66,17 +66,15 @@ cp .env.example .env
 copy .env.example .env  
 ```
 
-### 5. Acesse o mailtrap e pega as credencias da sua sandbox
-Você deverá acessar o mailtrap e na barra lateral ou na tela principal mesmo deverá acessar sandboxes e,
-acessar a mysandbox, nessa área você irá obter o seu username e o password, isso é necessário para a aplicação
-acessar o mailtrap e conseguir manda um email via smtp.
+### 5. Obtenha as credencias do Sandbox do Mailtrap
+Acesse o [Mailtrap](https://mailtrap.io), vá em **Sandboxes** depois em **My Sandbox** e copie o **Username** e o **Password** da sua sandbox. Essas credenciais são usadas para envio de e-mails via SMTP.
 
 
 ### 6. Acesse o arquivo .env e Adicione os Valores das Variáveis de Ambiente
-terá essas linhas: <br/>
+nessas essas linhas você deverá subistituir os valores após os dois pontos pelos valores obtidos no passo anterior: <br/>
 -MAIL_USERNAME:YOUR_MAILTRAP_USERNAME <br/>
 -MAIL_PASSWORD:YOUR_MAIL_TRAP_PASSWORD <br/>
-a qual você deverá subistituir os valores após os dois pontos pelas credencias que você obteve no seu mailtrap
+
 
 ### 7. Rodar a aplicação
 Após isso, basta abrir o terminal e executar o seguinte comando:
@@ -85,4 +83,4 @@ Após isso, basta abrir o terminal e executar o seguinte comando:
 docker compose up --build
 ```
 
-Agora a aplicação já esta rodando na porta 8080, e as rotas podem ser acessadas via swaggerUI em: http://localhost:8080/swagger-ui/index.html
+Agora a aplicação já esta rodando na porta **8080**, e as rotas podem ser acessadas via swaggerUI em: http://localhost:8080/swagger-ui/index.html
