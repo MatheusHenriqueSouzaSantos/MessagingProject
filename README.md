@@ -25,7 +25,7 @@ e faz o envio de email através do mailtrap (sandbox) para o usuário que foi cr
 - Ter uma conta no mailtrap
 - Docker
 - Docker Compose <br/>
-obs: se Windows o docker desktop já tem o docker e o docker compose, basta inicia-lo e seguir o processo
+obs: se Windows, o docker desktop já tem o docker e o docker compose, basta inicia-lo e seguir o processo
 
 ### 1. Abra o terminal 
 
