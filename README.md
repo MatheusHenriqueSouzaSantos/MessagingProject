@@ -52,5 +52,23 @@ cp .env.example .env
 copy .env.example .env  
 ```
 
-### 5. contruindo...
+### 5. Acesse o mailtrap e pega as credencias da sua sandbox
+Você deverá acessar o mailtrap e na barra lateral ou na tela principal mesmo deverá acessar sandboxes e,
+acessar a mysandbox, nessa área você irá obter o seu username e o password, isso é necessário para a aplicação
+acessar o mailtrap e conseguir manda um email via smtp.
 
+
+### 6. Acesse o arquivo .env e Adicione os Valores das Variáveis de Ambiente
+terá essas linhas:
+-MAIL_USERNAME:YOUR_MAILTRAP_USERNAME
+-MAIL_PASSWORD:YOUR_MAIL_TRAP_PASSWORD
+a qual você deverá subistituir os valores após os dois pontos pelas credencias que você obteve no seu mailtrap
+
+### 7. Rodar a aplicação
+Após isso, basta abrir o terminal e executar o seguinte comando:
+
+```bash
+docker compose up --build
+```
+
+Agora a aplicação já esta rodando na porta 8080, e as rotas podem ser acessadas via swaggerUI em:
