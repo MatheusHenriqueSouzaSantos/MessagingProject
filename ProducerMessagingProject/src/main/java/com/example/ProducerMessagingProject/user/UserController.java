@@ -1,7 +1,11 @@
 package com.example.ProducerMessagingProject.user;
 
+import com.example.ProducerMessagingProject.BusinessException;
 import com.example.ProducerMessagingProject.JwtResponse;
+import com.example.ProducerMessagingProject.LoginRateLimitService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +18,11 @@ public class UserController {
 
     private final UserService service;
 
-    public UserController(UserService service) {
+    private final LoginRateLimitService rateLimitService;
+
+    public UserController(UserService service, LoginRateLimitService rateLimitService) {
         this.service = service;
+        this.rateLimitService = rateLimitService;
     }
 
     @GetMapping
@@ -43,7 +50,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody @Valid LoginDto dto){
+    public ResponseEntity<JwtResponse> login(HttpServletRequest request, @RequestBody @Valid LoginDto dto){
+        if(!rateLimitService.allowRequest(request.getRemoteAddr())){
+            throw new BusinessException("too many request to login", HttpStatus.TOO_MANY_REQUESTS);
+        }
         return ResponseEntity.ok(service.login(dto));
     }
 
