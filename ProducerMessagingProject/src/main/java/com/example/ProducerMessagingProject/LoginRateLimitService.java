@@ -23,7 +23,7 @@ public class LoginRateLimitService {
     public Bucket createBucket(){
         Bandwidth limit= Bandwidth.builder()
                 .capacity(3)
-                .refillGreedy(3, Duration.ofMinutes(1))
+                .refillIntervally(3, Duration.ofMinutes(1))
                 .build();
         return Bucket.builder()
                 .addLimit(limit)
