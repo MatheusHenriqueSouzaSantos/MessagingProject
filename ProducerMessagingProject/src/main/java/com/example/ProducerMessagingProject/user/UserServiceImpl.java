@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserOutputDto entityToDto(UserModel user){
-        return new UserOutputDto(user.getUserName(), user.getEmail());
+        return new UserOutputDto(user.getId(),user.getUserName(), user.getEmail());
     }
 
 

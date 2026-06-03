@@ -1,4 +1,6 @@
 package com.example.ProducerMessagingProject.user;
 
-public record UserOutputDto(String userName,String email) {
+import java.util.UUID;
+
+public record UserOutputDto(UUID id, String userName, String email) {
 }
