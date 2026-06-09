@@ -51,10 +51,18 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(HttpServletRequest request, @RequestBody @Valid LoginDto dto){
-        if(!rateLimitService.allowRequest(request.getRemoteAddr())){
+        if(rateLimitService.isBlocked(request.getRemoteAddr())){
             throw new BusinessException("too many request to login", HttpStatus.TOO_MANY_REQUESTS);
         }
-        return ResponseEntity.ok(service.login(dto));
+
+        try{
+            return ResponseEntity.ok(service.login(dto));
+        }
+        catch (BusinessException ex){
+            rateLimitService.registerFailedAttempt(request.getRemoteAddr());
+            throw ex;
+        }
+
     }
 
 }

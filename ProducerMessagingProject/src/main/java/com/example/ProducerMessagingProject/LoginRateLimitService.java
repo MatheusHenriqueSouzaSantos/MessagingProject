@@ -12,12 +12,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LoginRateLimitService {
     private final Map<String, Bucket> bucketsByIp=new ConcurrentHashMap<String,Bucket>();
 
-    public boolean allowRequest(String ip){
-        Bucket bucket=bucketsByIp.computeIfAbsent(
-                ip,
-                i ->createBucket()
-        );
-        return bucket.tryConsume(1);
+    public void registerFailedAttempt(String ip) {
+        bucketsByIp.computeIfAbsent(ip, i -> createBucket()).tryConsume(1);
+    }
+
+    public boolean isBlocked(String ip) {
+        Bucket bucket = bucketsByIp.get(ip);
+        return bucket != null && !(bucket.getAvailableTokens() > 0);
     }
 
     public Bucket createBucket(){
